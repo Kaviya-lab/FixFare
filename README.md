@@ -1,5 +1,7 @@
 # FixFare
 
+![FixFare](public/dashboard.jpeg)
+
 FixFare is a community-driven, AI-powered platform where users post real-life daily problems and receive practical, product-linked solutions from both people and AI.
 
 Think: Reddit problems + Instagram discovery + AI assistant + affiliate shopping, all in one feed.
@@ -48,5 +50,15 @@ supabase/
   functions/         Edge function that calls Gemini to generate AI solutions
   migrations/        SQL schema: users, problems, solutions, upvotes tables
 ```
+
+## Output
+## Login
+![Login](public/login.jpeg)
+## Post a Problem
+![Post a Problem](public/post.jpeg)
+## FixFare Solution
+![FixFare Solution](public/solution.jpeg)
+## FixFare AI Solution
+![FixFare AI Solution](public/aisolution.jpeg)
 
 
