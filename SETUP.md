@@ -1,8 +1,4 @@
-# FixFare — Setup Guide (Lovable-independent rebuild)
-
-This is the original FixFare codebase with one change: the AI solution generator
-now calls Google's Gemini API directly with your own key, instead of Lovable's
-AI gateway. Everything else (React frontend, Supabase database schema, UI) is unchanged.
+# FixFare — Setup Guide 
 
 ## What you need before starting
 
@@ -82,25 +78,8 @@ Pages, GitHub Pages, or any static host. Remember to set the `VITE_SUPABASE_*`
 environment variables in your hosting provider's dashboard too, since `.env` files
 aren't usually committed/deployed.
 
-## Notes on what changed from the original
-
-- `supabase/functions/generate-solution/index.ts` — rewritten to call
-  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`
-  directly with a `GEMINI_API_KEY` secret, instead of Lovable's AI gateway.
-  The request/response shape the frontend expects (`solution`,
-  `productRecommendation`, `productLink`) is unchanged, so no other files needed edits.
-- `vite.config.ts` / `package.json` — removed `lovable-tagger`, a dev-only plugin
-  Lovable's visual editor uses to map UI clicks to source code. It has no effect
-  outside Lovable's own editor, so removing it doesn't change app behavior.
-- `.env` — credentials blanked out to placeholders; fill in your own Supabase values.
-- `supabase/config.toml` — project_id blanked to a placeholder; the Supabase CLI
-  will set this correctly when you run `supabase link`.
-
 ## Want a different Gemini model?
 
 Edit the `GEMINI_MODEL` constant near the top of
 `supabase/functions/generate-solution/index.ts`. Current default is
-`gemini-2.0-flash` (fast, cheap, generous free tier). Other options as of this
-writing include `gemini-2.0-flash-lite` or `gemini-1.5-pro` if you want higher
-quality at higher cost/latency — check https://ai.google.dev/gemini-api/docs/models
-for the current list before picking, since model names/availability change over time.
+`gemini-2.5-flash` (fast, cheap, generous free tier). 
