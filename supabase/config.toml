@@ -1,0 +1,4 @@
+project_id = "dgolkrzewwvknjnromaa"
+
+[functions.generate-solution]
+verify_jwt = false
